@@ -2,13 +2,15 @@
 
 class Car
 {
-    public $make_model;
-    public $price;
-    public $miles;
+    private  $model;
+    private $price;
+    private $miles;
+    private $color;
+    private $drive;
 
-    function __construct($make_model, $price, $miles, $color, $drive)
+    function __construct($model, $price, $miles, $color, $drive)
     {
-        $this->make_model = $make_model;
+        $this->model = $model;
         $this->price = $price;
         $this->miles = $miles;
         $this->color = $color;
@@ -20,30 +22,63 @@ class Car
     {
         return $this->price < ($max_price + 100);
     }
+
+    function setPrice($new_price)
+    {
+        $this->price = (float) $new_price;
+        if ($float_price !=0) {
+            $formatted_price = number_format($float_price, 2);
+            $this->price = $float_price;
+        }
+    }
+    function getPrice()
+    {
+        return $this->price;
+    }
+    function setMiles($new_miles)
+    {
+        $this->miles = (float) $new_miles;
+        if ($float_miles !=0) {
+            $this->miles = $float_miles;
+        }
+    }
+    function getMiles()
+    {
+        return $this->miles;
+    }
+    function setColor($new_color)
+    {
+        $this->color = $new_color;
+    }
+    function getColor()
+    {
+        return $this->color;
+    }
+        function setDrive($new_drive)
+        {
+            $this->drive = $new_drive;
+        }
+        function getDrive()
+        {
+            return $this->drive;
+
+    }
+    function setModel($new_model)
+    {
+        $this->model = $new_model;
+    }
+    function getModel()
+    {
+        return $this->model;
+    }
 }
 
+  $first_car = new Car("2014 Porsche 911", 114991, 7864, "red", "4wd");
+  $second_car = new Car("2011 Ford F450", 55995, 14241, "blue", "2wd");
+  $third_car = new Car("2013 Lexus RX 350", 44700, 20000, "gold", "no wheel drive");
+  $fourth_car = new Car("Mercedes Benz CLS550", 39900, 37979, "brown", "8wd");
 
-  $porsche = new Car();
-   $porsche->make_model = "2014 Porsche 911";
-   $porsche->price = 114991;
-   $porsche->miles = 7864;
-
-  $ford = new Car();
-   $ford->make_model = "2011 Ford F450";
-   $ford->price = 55995;
-   $ford->miles = 14241;
-
-  $lexus = new Car();
-   $lexus->make_model = "2013 Lexus RX 350";
-   $lexus->price = 44700;
-   $lexus->miles = 20000;
-
-  $mercedes = new Car();
-   $mercedes->make_model = "Mercedes Benz CLS550";
-   $mercedes->price = 39900;
-   $mercedes->miles = 37979;
-
- $cars = array($porsche, $ford, $lexus, $mercedes);
+ $cars = array($first_car, $second_car, $third_car, $fourth_car);
 
  $cars_matching_search = array();
  foreach ($cars as $car) {
@@ -65,10 +100,18 @@ class Car
         <ul>
             <?php
                 foreach ($cars_matching_search as $car) {
-                    echo "<li> $car->make_model </li>";
+                    $car_price = $car->getPrice();
+                    $car_miles = $car->getMiles();
+                    $car_color = $car->getColor();
+                    $car_drive = $car->getDrive();
+                    $car_model = $car->getModel();
+                    echo "<li> $car_model </li>";
                     echo "<ul>";
-                        echo "<li> $car->price </li>";
-                        echo "<li> $car->miles </li>";
+                        echo "<li> $$car_price </li>";
+                        echo "<li> $car_miles </li>";
+                        echo "<li> $car_color </li>";
+                        echo "<li> $car_drive </li>";
+
                     echo "</ul>";
                 }
             ?>
