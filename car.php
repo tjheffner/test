@@ -7,15 +7,16 @@ class Car
     private $miles;
     private $color;
     private $drive;
+    public $image_path;
 
-    function __construct($model, $price, $miles, $color, $drive)
+    function __construct($model, $price, $miles, $color, $drive, $image_path)
     {
         $this->model = $model;
         $this->price = $price;
         $this->miles = $miles;
         $this->color = $color;
         $this->drive = $drive;
-
+        $this->image_path = $image_path;
     }
 
     function worthBuying($max_price)
@@ -73,10 +74,10 @@ class Car
     }
 }
 
-  $first_car = new Car("2014 Porsche 911", 114991, 7864, "red", "4wd");
-  $second_car = new Car("2011 Ford F450", 55995, 14241, "blue", "2wd");
-  $third_car = new Car("2013 Lexus RX 350", 44700, 20000, "gold", "no wheel drive");
-  $fourth_car = new Car("Mercedes Benz CLS550", 39900, 37979, "brown", "8wd");
+  $first_car = new Car("2014 Porsche 911", 114991, 7864, "red", "4wd", "images/porsche.jpg");
+  $second_car = new Car("2011 Ford F450", 55995, 14241, "blue", "2wd", "images/ford.jpg");
+  $third_car = new Car("2013 Lexus RX 350", 44700, 20000, "gold", "no wheel drive", "images/lexus.jpg");
+  $fourth_car = new Car("Mercedes Benz CLS550", 39900, 37979, "brown", "8wd", "images/mercedes.jpg");
 
  $cars = array($first_car, $second_car, $third_car, $fourth_car);
 
@@ -106,6 +107,7 @@ class Car
                     $car_drive = $car->getDrive();
                     $car_model = $car->getModel();
                     echo "<li> $car_model </li>";
+                    echo "<li><img src='$car->image_path'></li>";
                     echo "<ul>";
                         echo "<li> $$car_price </li>";
                         echo "<li> $car_miles </li>";
