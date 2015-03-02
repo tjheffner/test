@@ -113,8 +113,10 @@ class Car
                         echo "<li> $car_miles </li>";
                         echo "<li> $car_color </li>";
                         echo "<li> $car_drive </li>";
-
                     echo "</ul>";
+                }
+                if (empty($cars_matching_search)) {
+                    echo "<li>No cars match your search.</li>";
                 }
             ?>
         </ul>
