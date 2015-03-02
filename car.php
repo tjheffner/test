@@ -6,6 +6,16 @@ class Car
     public $price;
     public $miles;
 
+    function __construct($make_model, $price, $miles, $color, $drive)
+    {
+        $this->make_model = $make_model;
+        $this->price = $price;
+        $this->miles = $miles;
+        $this->color = $color;
+        $this->drive = $drive;
+
+    }
+
     function worthBuying($max_price)
     {
         return $this->price < ($max_price + 100);
