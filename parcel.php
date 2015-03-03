@@ -5,9 +5,19 @@ class Parcel {
     private $width;
     private $height;
     private $weight;
-    private $volume;
-    private $cost;
 
+    function getLength(){
+        return $this->length;
+    }
+    function getWidth(){
+        return $this->width;
+    }
+    function getHeight(){
+        return $this->height;
+    }
+    function getWeight(){
+        return $this->weight;
+    }
     function __construct($length, $width, $height, $weight)
     {
         $this->length = $length;
@@ -16,18 +26,14 @@ class Parcel {
         $this->weight = $weight;
     }
 }
+
+function volume(){
+    $length * $width * $height = $volume;
+    return $this->volume;
+}
+
+
 $parcel = new Parcel($_GET["height"], $_GET["width"], $_GET["length"], $_GET["weight"]);
-
-    function volume(){
-        $volume = $height * $width * $length;
-        return $volume;
-    }
-
-    function costToShip(){
-        $volume * $weight = $costToShip;
-        return $costToShip;
-    }
-
 
 ?>
 <!DOCTYPE html>
@@ -40,9 +46,12 @@ $parcel = new Parcel($_GET["height"], $_GET["width"], $_GET["length"], $_GET["we
 <body>
    <div class="container">
        <h1>Cost to Ship:</h1>
+       <ul>
        <?php
-       echo "<p>$costToShip</p>"
+           echo "<li> $volume</li>";
+
        ?>
+       </ul>
    </div>
 </body>
 </html>
